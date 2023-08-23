@@ -1,12 +1,15 @@
+import { useSelector } from 'react-redux'
 import classes from './Counter.module.css';
 
 const Counter = () => {
-  const toggleCounterHandler = () => {};
+  // we need to pass a fxn which will received the state managed by redux, then we return the part of the state we want to extract. when we used useSelector react redux automatically sets the subscription for this 
+  const counter = useSelector(state => state.counter);
+  const toggleCounterHandler = () => { };
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>-- COUNTER VALUE --</div>
+      <div className={classes.value}>{counter}</div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
   );
