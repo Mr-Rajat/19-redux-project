@@ -30,4 +30,6 @@ const Counter = () => {
   );
 };
 
+// class based redux component
+
 export default Counter;
