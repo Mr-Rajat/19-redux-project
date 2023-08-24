@@ -1,4 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux'
+// import { Component } from 'react';
+
+import { useSelector, useDispatch, connect } from 'react-redux';
+// connect is used to use redux in class based components. can also be used in fxn comp. 
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -30,6 +33,51 @@ const Counter = () => {
   );
 };
 
-// class based redux component
-
 export default Counter;
+
+// // class based redux component
+// class Counter extends Component {
+
+//   incrementHandler() {
+//     this.props.increment();
+//   }
+
+//   decrementHandler() {
+//     this.props.decrement();
+//   }
+
+//   toggleCounterHandler() { }
+
+//   render() {
+//     return (
+//       <main className={classes.counter}>
+//         <h1>Redux Counter</h1>
+//         <div className={classes.value}>{this.props.counter}</div>
+//         <div>
+//           <button onClick={this.incrementHandler.bind(this)} >Increment</button>
+//           <button onClick={this.decrementHandler.bind(this)} >Decrement</button>
+//         </div>
+//         <button onClick={this.toggleCounterHandler}>Toggle Counter</button>
+//       </main>
+//     );
+//   }
+// }
+// // class based : connect return new fxn then we pass our component . It is HOF
+// const mapStateToProps = state => {
+//   return {
+//     counter: state.counter,
+//   }
+// }; //state from store
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     increment: () => dispatch({ type: 'increment' }),
+//     decrement: () => dispatch({ type: 'decrement' }),
+
+//   }
+
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(Counter); 
+// connect() accepts 2 arguments, 1 is mapStateToProp fx which connect state ,and other is dispatch fxn
+
+
