@@ -1,6 +1,27 @@
-import { createStore } from 'redux'
+import { createStore } from 'redux';
+import { createSlice } from '@reduxjs/toolkit';
+// more enhance than the createReducer which is also available with toolkit
 
 const initialState = { counter: 0, showCounter: true };
+
+createSlice({
+    name: "counter", // name of reducer
+    initialState,  // using single value due to key and value have same name
+    reducers: {
+        increment(state) {
+            state.counter++;
+        },
+        decrement(state) {
+            state.counter--;
+        },
+        increase(state, action) {
+            state.counter= state.counter + action.payload;
+        },
+        toggleCounter(state) {
+            state.showCounter = !state.showCounter;
+        },
+    }
+});
 
 const counterReducer = (state = initialState, action) => {
 
