@@ -1,6 +1,6 @@
 // videoNo 274 important
 // import { Component } from 'react';
-
+import { counterActions } from './store';
 import { useSelector, useDispatch, connect } from 'react-redux';
 // connect is used to use redux in class based components. can also be used in fxn comp. 
 import classes from './Counter.module.css';
@@ -12,19 +12,26 @@ const Counter = () => {
   // we need to pass a fxn which will received the state managed by redux, then we return the part of the state we want to extract. when we used useSelector react redux automatically sets the subscription for this 
 
   const incrementHandler = () => {
-    dispatch({ type: 'increment' });
+    // dispatch({ type: 'increment' });
+    dispatch(counterActions.increment());
   }
 
   const increaseHandler = () => {
-    dispatch({ type: 'increase', payload: 5 });
+    // dispatch({ type: 'increase', payload: 5 });
+    dispatch(counterActions.increase(5));
+
   }
 
   const decrementHandler = () => {
-    dispatch({ type: 'decrement' });
+    // dispatch({ type: 'decrement' });
+    dispatch(counterActions.decrement());
+
   }
 
   const toggleCounterHandler = () => { 
-    dispatch({ type: 'toggle' })
+    // dispatch({ type: 'toggle' })
+    dispatch(counterActions.toggleCounter());
+
    };
 
 
