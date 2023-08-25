@@ -7,8 +7,9 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector(state => state.counter);
-  const show = useSelector(state => state.showCounter);
+  // state.counter in this counter is the key from reducer in the store configure
+  const counter = useSelector((state) => state.counter.counter);
+  const show = useSelector((state) => state.counter.showCounter);
   // we need to pass a fxn which will received the state managed by redux, then we return the part of the state we want to extract. when we used useSelector react redux automatically sets the subscription for this 
 
   const incrementHandler = () => {
