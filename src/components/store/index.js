@@ -30,6 +30,8 @@ const store = configureStore({
     reducer: counterSlice.reducer
 });
 
+export const counterActions =  counterSlice.actions;
+
 
 // // Reducer for simple createStore with redux above is toolkit store
 
