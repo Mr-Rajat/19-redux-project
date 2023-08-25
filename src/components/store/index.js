@@ -1,57 +1,20 @@
 // import { createStore } from 'redux';
 
-import { createSlice, configureStore } from '@reduxjs/toolkit';
-// more enhance than the createReducer which is also available with toolkit
+import { configureStore } from '@reduxjs/toolkit';
+// createSlice more enhance than the createReducer which is also available with toolkit
 // configure store also create a store like createStore but it makes merging multiple reducers into 1 reducer easier.
 
-const initialCounterState = { counter: 0, showCounter: true };
-
-const counterSlice = createSlice({
-    name: "counter", // name of reducer
-    initialState: initialCounterState,  // using single value due to key and value have same name
-    reducers: {
-        increment(state) {
-            state.counter++;
-        },
-        decrement(state) {
-            state.counter--;
-        },
-        increase(state, action) {
-            state.counter = state.counter + action.payload;
-        },
-        toggleCounter(state) {
-            state.showCounter = !state.showCounter;
-        },
-    }
-});
-
-const initialAuthState = {
-    isAuthenticated: false
-}
-
-const authSlice = createSlice({
-    name: "auth",
-    initialState: initialAuthState,
-    reducers: {
-        login(state) {
-            state.isAuthenticated = true;
-        },
-        logout(state) {
-            state.isAuthenticated = false;
-        }
-    }
-})
+import counterReducer from './counter';
+import authReducer from './auth';
 
 const store = configureStore({
     // expected property reducer
     reducer: {
-        counter: counterSlice.reducer,
-        auth: authSlice.reducer
+        counter: counterReducer,
+        auth: authReducer
     },
 });
 
-export const counterActions = counterSlice.actions;
-export const authActions = authSlice.actions;
 
 
 // // Reducer for simple createStore with redux above is toolkit store

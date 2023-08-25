@@ -1,6 +1,6 @@
 // videoNo 274 important
 // import { Component } from 'react';
-import { counterActions } from './store';
+import { counterActions } from './store/counter';
 import { useSelector, useDispatch, connect } from 'react-redux';
 // connect is used to use redux in class based components. can also be used in fxn comp. 
 import classes from './Counter.module.css';
